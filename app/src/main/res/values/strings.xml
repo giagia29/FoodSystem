@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">FoodSystem</string>
+    <string name="password">Password</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="already_have_an_account">Already have an account?</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="university_food_app">University Food App</string>
+    <string name="sign_in">Sign In</string>
+</resources>

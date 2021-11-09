@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "830140343005",
+    "firebase_url": "https://foodsystem-ab0dd-default-rtdb.firebaseio.com",
+    "project_id": "foodsystem-ab0dd",
+    "storage_bucket": "foodsystem-ab0dd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:830140343005:android:e00982f393a547317ff134",
+        "android_client_info": {
+          "package_name": "com.example.foodsystem"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "830140343005-u7mfn6t8ilj4tdr3gr1bm17l7nptraaq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDWEHYYbgXtzUtgB4_kMnVv9bROBczavTQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "830140343005-u7mfn6t8ilj4tdr3gr1bm17l7nptraaq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
