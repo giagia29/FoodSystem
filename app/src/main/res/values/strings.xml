@@ -7,4 +7,9 @@
     <string name="email">Email</string>
     <string name="university_food_app">University Food App</string>
     <string name="sign_in">Sign In</string>
+    <string name="find_nfood_near_you">Find\nFood Near You</string>
+    <string name="profile">profile</string>
+    <string name="options">options</string>
+    <string name="contents">contents</string>
+    <string name="popular">Popular</string>
 </resources>

@@ -3,5 +3,6 @@
     <array name="preloaded_fonts" translatable="false">
         <item>@font/aclonica</item>
         <item>@font/archivo_black</item>
+        <item>@font/baloo_da</item>
     </array>
 </resources>
