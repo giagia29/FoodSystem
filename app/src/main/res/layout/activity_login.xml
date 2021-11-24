@@ -17,7 +17,7 @@
         android:layout_marginStart="52dp"
         android:layout_marginTop="54dp"
         android:fontFamily="@font/aclonica"
-        android:text="University Food App"
+        android:text="@string/university_food_app"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="27sp"
@@ -34,7 +34,7 @@
         android:layout_marginTop="151dp"
         android:background="@color/white"
         android:ems="10"
-        android:hint="Email"
+        android:hint="@string/email"
         android:inputType="textEmailAddress"
         android:textColorHint="@android:color/darker_gray"
         android:textSize="24sp" />

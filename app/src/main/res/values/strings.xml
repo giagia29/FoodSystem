@@ -7,4 +7,6 @@
     <string name="email">Email</string>
     <string name="university_food_app">University Food App</string>
     <string name="sign_in">Sign In</string>
+    <string name="welcome_to_home_page">Welcome to Home Page</string>
+    <string name="logout">LogOut</string>
 </resources>

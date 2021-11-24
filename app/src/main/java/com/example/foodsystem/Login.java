@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -68,6 +69,7 @@ public class Login extends AppCompatActivity {
                         }
                         else
                         {
+                            Toast.makeText(Login.this, "Login Success", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(getApplicationContext(), MainActivity.class));
                             finish();
                         }
@@ -78,6 +80,7 @@ public class Login extends AppCompatActivity {
     }
     public void Register(View view){
         Intent intent = new Intent(this, Registration.class);
+        Toast.makeText(this, "Register success", Toast.LENGTH_SHORT).show();
         startActivity(intent);
     }
 }
