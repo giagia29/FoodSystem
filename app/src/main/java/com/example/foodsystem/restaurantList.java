@@ -15,7 +15,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class restaurantList extends AppCompatActivity {
 
     RecyclerView recyclerView;
     DatabaseReference database;
