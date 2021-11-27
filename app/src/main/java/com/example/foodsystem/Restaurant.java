@@ -1,10 +1,13 @@
 package com.example.foodsystem;
 
 public class Restaurant {
-    String name, closeHour, cuisine, openhour;
+    String name, closeHour, cuisine, openhour, id;
     Long wait;
-    //Menu menu;
+    Menu menu;
 
+    public void menu_create(){
+        menu = new Menu(id);
+    }
     public Long getWait() {
         return wait;
     }

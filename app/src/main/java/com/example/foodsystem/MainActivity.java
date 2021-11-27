@@ -41,6 +41,9 @@ public class MainActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()){
                     Restaurant restaurant = dataSnapshot.getValue(Restaurant.class);
+                    if(dataSnapshot.child("id").exists()){
+                        restaurant.menu_create();
+                    }
                     list.add(restaurant);
                 }
                 myAdapter.notifyDataSetChanged();
