@@ -12,6 +12,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FoodSystem">
         <activity
+            android:name=".Delivery"
+            android:exported="false" />
+        <activity
+            android:name=".Pickup"
+            android:exported="false" />
+        <activity
+            android:name=".DeliveryMethod"
+            android:exported="false" />
+        <activity
+            android:name=".MealPlan"
+            android:exported="false" />
+        <activity
+            android:name=".CreditCard"
+            android:exported="false" />
+        <activity
+            android:name=".Payment"
+            android:exported="false" />
+        <activity
             android:name=".restaurantList"
             android:exported="false" />
         <activity android:name=".Registration" />

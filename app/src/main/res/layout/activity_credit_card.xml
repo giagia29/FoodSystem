@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp">
+
+
+    <TextView
+        android:id="@+id/CN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="250dp"
+        android:text="Enter 16 digit card number"
+        android:textSize="19sp"></TextView>
+
+    <EditText
+        android:id="@+id/Num"
+        android:layout_width="224dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="280dp"
+        android:layout_marginEnd="170dp"
+        android:layout_marginRight="170dp"
+        android:hint="Enter Here:"
+        android:inputType="text"></EditText>
+
+    <TextView
+        android:id="@+id/CVV"
+        android:layout_width="wrap_content"
+        android:layout_height="43dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="350dp"
+        android:hint="Enter 3 digit CVV Number:"
+        android:textSize="19sp"></TextView>
+
+
+    <EditText
+        android:id="@+id/CV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="230dp"
+        android:layout_marginTop="350dp"
+        android:hint="CVV:"
+        android:textSize="19sp"></EditText>
+
+    <TextView
+        android:id="@+id/ED"
+        android:layout_width="91dp"
+        android:layout_height="46dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="407dp"
+        android:text="Exp Date"
+        android:textSize="19sp"></TextView>
+
+    <EditText
+        android:id="@+id/Date"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="400dp"
+        android:hint="Enter Date:"
+        android:textSize="19sp"></EditText>
+
+    <TextView
+        android:id="@+id/CardInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="1dp"
+        android:layout_marginTop="125dp"
+        android:text="Enter Card Information "
+        android:textSize="40sp"></TextView>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="520dp"
+        android:layout_centerHorizontal="true"
+        android:text="Process"></Button>
+
+
+</RelativeLayout>
