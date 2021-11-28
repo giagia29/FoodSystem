@@ -19,7 +19,7 @@ public class restaurantList extends AppCompatActivity {
 
     RecyclerView recyclerView;
     DatabaseReference database;
-    MyAdapter myAdapter;
+    res_card_adapter myAdapter;
     ArrayList<Restaurant> list;
 
     @Override
@@ -33,7 +33,7 @@ public class restaurantList extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         list = new ArrayList<>();
-        myAdapter = new MyAdapter(this, list);
+        myAdapter = new res_card_adapter(this, list);
         recyclerView.setAdapter(myAdapter);
 
         database.addValueEventListener(new ValueEventListener() {
