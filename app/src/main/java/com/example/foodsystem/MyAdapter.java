@@ -43,8 +43,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> impl
     @Override
     public void onBindViewHolder(@NonNull MyAdapter.MyViewHolder holder, int position) {
         Restaurant restaurant = restaurantArrayList.get(position);
-        holder.restaurant_name.setText(restaurant.Restaurant_name);
-        holder.titleImage.setImageResource(restaurant.titleImage);
+        holder.restaurant_name.setText(restaurant.name);
+        holder.titleImage.setImageResource(restaurant.image);
+        holder.cuisine.setText(restaurant.cuisine);
+        holder.openHour.setText(restaurant.openHour);
+        holder.address.setText(restaurant.address);
     }
 
     @Override
@@ -68,7 +71,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> impl
                 String filterPattern = constraint.toString().toLowerCase().trim();
 
                 for(Restaurant restaurant : restaurantArrayListFull) {
-                    if(restaurant.Restaurant_name.toLowerCase().contains(filterPattern))
+                    if(restaurant.name.toLowerCase().contains(filterPattern))
                         filteredRestaurantList.add(restaurant);
                 }
             }
@@ -89,11 +92,19 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> impl
 
         TextView restaurant_name;
         ShapeableImageView titleImage;
+        TextView cuisine;
+        TextView openHour;
+        TextView address;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             restaurant_name = itemView.findViewById(R.id.Restaurant_name);
             titleImage = itemView.findViewById(R.id.title_image);
+            cuisine = itemView.findViewById(R.id.Cuisine);
+            openHour = itemView.findViewById(R.id.ClosingTime);
+            address = itemView.findViewById(R.id.Address);
+
+
             itemView.setOnClickListener(this);
 
         }

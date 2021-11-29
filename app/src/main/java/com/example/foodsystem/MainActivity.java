@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.SearchView;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
@@ -37,16 +38,12 @@ public class MainActivity extends AppCompatActivity {
 
 
         restaurantNames = new String[]{
-                "Panda Express",
-                "Wendy's",
                 "Chick-Fil-A",
                 "Burger King",
                 "Mcdonalds"
         };
 
         imageResourceID = new int[]{
-                R.drawable.b,
-                R.drawable.c,
                 R.drawable.a,
                 R.drawable.bu,
                 R.drawable.m
@@ -67,11 +64,25 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void getData() {
-        for(int i= 0; i<restaurantNames.length; i++)
-        {
-            Restaurant restaurant = new Restaurant(restaurantNames[i], imageResourceID[i]);
-            restaurantArrayList.add(restaurant);
-        }
+
+        ArrayList<ResturantItem> menuOne = new ArrayList<ResturantItem>();
+        ResturantItem itemOne = new ResturantItem("Bigger Plate", 100, "Orange Chicken, Honey Walnut Shrimp, Grilled Teryaki Chicken and Fried Rice",9.30);
+        ResturantItem itemTwo = new ResturantItem("Bowl", 60, "Orange Chicken, and Fried Rice",6.30);
+        ResturantItem itemThree = new ResturantItem("Drink", 20, "Fountain Drink",2.30);
+        ResturantItem itemFour = new ResturantItem("Plate", 90, "Orange Chicken, Honey Walnut Shrimp, and Fried Rice",7.80);
+        Collections.addAll(menuOne, itemOne, itemTwo, itemThree, itemFour);
+        Restaurant resturantOne = new Restaurant("Panda Express", R.drawable.b, "21:00", "Chinese", "1000 N Collins St, Arlington, TX 76011", "10:00 - 23:59", menuOne);
+
+        ArrayList<ResturantItem> menuTwo = new ArrayList<ResturantItem>();
+        ResturantItem itemFive = new ResturantItem("baconnator", 100, "Baconnator Burger,  Medium Fry, and a Medium Drink",9.99);
+        ResturantItem itemSix = new ResturantItem("daves", 70, "Dave's classic single patty burger, Medium Fry, and a Medium Drink",7.29);
+        ResturantItem itemSeven = new ResturantItem("fiveDollarBB", 60, "Small Bacon Burger, Five Piece nugget, Small Fry, and a Drink",5.30);
+        ResturantItem itemEight = new ResturantItem("homestyle", 150, "Classic Homestyle Chicken Sandwich, Medium Fry, and a Medium Drink",7.29);
+        Collections.addAll(menuTwo, itemFive, itemSix, itemSeven, itemEight);
+        Restaurant resturantTwo = new Restaurant("Wendy's", R.drawable.c, "23:59", "FastFood", "409 W Abram st, Arlington, TX 76010", "9:00 - 22:00", menuTwo);
+
+
+        Collections.addAll(restaurantArrayList, resturantOne, resturantTwo);
 
         myAdapter = new MyAdapter(this, restaurantArrayList, listener);
         recyclerView.setAdapter(myAdapter);
