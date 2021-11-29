@@ -9,4 +9,10 @@
     <string name="sign_in">Sign In</string>
     <string name="welcome_to_home_page">Welcome to Home Page</string>
     <string name="logout">LogOut</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="Menu">Menu</string>
+    <string name="Order">Order</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="tab_1">Menu</string>
+    <string name="tab_2">Order</string>
 </resources>

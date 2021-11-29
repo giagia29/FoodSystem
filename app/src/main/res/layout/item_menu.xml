@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="6dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginEnd="10dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+        <ImageView
+            android:layout_centerVertical="true"
+            android:id="@+id/orange_chicken"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/orange_chicken"/>
+
+        <LinearLayout
+            android:layout_toStartOf="@+id/addcart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_toEndOf="@+id/orange_chicken"
+            android:layout_marginStart="10dp">
+
+            <TextView
+                android:id="@+id/food"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Orange Chicken"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="$4.50"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_centerVertical="true"
+            android:id="@+id/addcart"
+            android:layout_alignParentEnd="true"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/baseline_add_shopping_cart_black_36"/>
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

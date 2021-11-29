@@ -1,15 +1,18 @@
 package adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.foodsystem.R;
+import com.example.foodsystem.RestaurantDetail;
 
 import java.util.List;
 
@@ -50,6 +53,7 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Vi
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
+        RelativeLayout container;
         TextView name;
         TextView address;
         TextView phone;
@@ -59,12 +63,22 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Vi
             name = itemView.findViewById(R.id.restaurant_name);
             phone = itemView.findViewById(R.id.restaurant_phone);
             address = itemView.findViewById(R.id.address);
+            container = itemView.findViewById(R.id.container);
         }
 
         public void bind(Restaurants restaurant) {
             name.setText(restaurant.getRestaurant_name());
             phone.setText(restaurant.getRestaurant_phone());
             address.setText(restaurant.getAddress());
+
+            container.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i = new Intent(context, RestaurantDetail.class);
+                    i.putExtra("Restaurant's name", restaurant.getRestaurant_name());
+                    context.startActivity(i);
+                }
+            });
         }
     }
 }
