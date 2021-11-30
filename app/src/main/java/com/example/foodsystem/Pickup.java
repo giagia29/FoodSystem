@@ -16,7 +16,7 @@ public class Pickup extends AppCompatActivity {
         setContentView(R.layout.activity_pickup);
         Button Stat,PU;
         Stat = findViewById(R.id.MS);
-        PU = findViewById(R.id.PU);
+        PU = findViewById(R.id.OP);
 
         Stat.setOnClickListener(new View.OnClickListener() {
             @Override
