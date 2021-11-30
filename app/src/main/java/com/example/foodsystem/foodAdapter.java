@@ -36,11 +36,15 @@ public class foodAdapter extends RecyclerView.Adapter<foodAdapter.MyViewHolder>{
     @Override
     public void onBindViewHolder(@NonNull foodAdapter.MyViewHolder holder, int position) {
         Food food = FoodArrayList.get(position);
+        String prepTime_string = String.format("%s min(s)", food.Description);
+        String price_string = String.format("$ %s", food.prepTime);
+        String description_string = String.format(food.price);
+
         holder.name.setText(food.name);
         holder.image.setImageResource(food.image);
-        holder.prepTime.setText(food.prepTime);
-        holder.price.setText(food.price);
-        holder.description.setText(food.Description);
+        holder.prepTime.setText(price_string);
+        holder.price.setText(description_string);
+        holder.description.setText(prepTime_string);
     }
 
     @Override
@@ -61,9 +65,9 @@ public class foodAdapter extends RecyclerView.Adapter<foodAdapter.MyViewHolder>{
             super(itemView);
             name = itemView.findViewById(R.id.name);
             image = itemView.findViewById(R.id.Food_image);
-            prepTime = itemView.findViewById(R.id.prepTime);
-            price = itemView.findViewById(R.id.price);
-            description = itemView.findViewById(R.id.Description);
+            prepTime = itemView.findViewById(R.id.price);
+            price = itemView.findViewById(R.id.Description);
+            description = itemView.findViewById(R.id.prepTime);
         }
     }
 }

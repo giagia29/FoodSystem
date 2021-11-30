@@ -48,16 +48,16 @@ public class RestaurantActivity extends AppCompatActivity {
                 R.drawable.plate
         };
         foodPrice = new String[]{
-                "$11.30",
-                "$7.70",
-                "$2.30",
-                "$9.50"
+                "11.30",
+                "7.70",
+                "2.30",
+                "9.50"
         };
 
         Description = new String[]{
-                "$Orange Chicken, Honey Walnut Shrimp, Grilled Teryaki Chicken and Fried Rice",
-                "$Orange Chicken, and Fried Rice",
-                "$Fountain Drink",
+                "Orange Chicken, Honey Walnut Shrimp, Grilled Teryaki Chicken and Fried Rice",
+                "Orange Chicken, and Fried Rice",
+                "Fountain Drink",
                 "Orange Chicken, Honey Walnut Shrimp, and Fried Rice"
         };
 
