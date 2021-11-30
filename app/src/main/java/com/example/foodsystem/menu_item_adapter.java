@@ -17,11 +17,13 @@ import java.util.HashMap;
 public class menu_item_adapter extends RecyclerView.Adapter<menu_item_adapter.MyViewHolder>{
     Context context;
     ArrayList<MenuItem> list;
+    private OnMIListener mOnMIListener;
     public static final String TAG = "menu_ia";
 
-    public menu_item_adapter(Context context, ArrayList<MenuItem> list) {
+    public menu_item_adapter(Context context, ArrayList<MenuItem> list, OnMIListener onMIListener) {
         this.context = context;
         this.list = list;
+        this.mOnMIListener = onMIListener;
     }
 
     @NonNull
@@ -29,7 +31,7 @@ public class menu_item_adapter extends RecyclerView.Adapter<menu_item_adapter.My
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(context).inflate(R.layout.menu_item_card, parent, false);
         Log.d(TAG, "onCreateViewHolder: s");
-        return new MyViewHolder(v);
+        return new MyViewHolder(v, mOnMIListener);
     }
 
     @Override
@@ -39,7 +41,6 @@ public class menu_item_adapter extends RecyclerView.Adapter<menu_item_adapter.My
         holder.name.setText(item.getName());
         holder.price.setText(item.getPrice());
         holder.description.setText(item.getDescription());
-        holder.add.s
     }
 
     @Override
@@ -47,18 +48,24 @@ public class menu_item_adapter extends RecyclerView.Adapter<menu_item_adapter.My
         return list.size();
     }
 
-    public static class MyViewHolder extends RecyclerView.ViewHolder{
+    public static class MyViewHolder extends RecyclerView.ViewHolder implements  View.OnClickListener{
         TextView name, price, description;
-        Button add;
+        OnMIListener onMIListener;
 
-        public MyViewHolder(@NonNull View itemView) {
+        public MyViewHolder(@NonNull View itemView, OnMIListener onMIListener) {
             super(itemView);
 
             name = itemView.findViewById(R.id.miName);
             price = itemView.findViewById(R.id.miWPrice);
             description = itemView.findViewById(R.id.miDescription);
-            add = itemView.findViewById(R.id.addbtn);
+            this.onMIListener = onMIListener;
 
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            onMIListener.onMIClick(getAdapterPosition());
         }
     }
 

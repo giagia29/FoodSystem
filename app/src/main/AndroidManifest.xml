@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FoodSystem">
         <activity
-            android:name=".Cart"
+            android:name=".Cart_View"
             android:exported="false" />
         <activity
             android:name=".menu_view"
