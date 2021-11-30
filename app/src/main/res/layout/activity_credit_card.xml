@@ -80,6 +80,11 @@
         android:layout_marginTop="520dp"
         android:layout_centerHorizontal="true"
         android:text="Process"></Button>
+    <ImageView
+        android:layout_width="411dp"
+        android:layout_height="120dp"
+        android:src="@drawable/cc1"
+        ></ImageView>
 
 
 </RelativeLayout>
