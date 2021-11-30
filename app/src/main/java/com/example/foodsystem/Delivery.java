@@ -15,15 +15,16 @@ public class Delivery extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_delivery);
-        Button CS,CD;
+        Button CS,CD,OR;
 
         CD = findViewById(R.id.contact);
         CS = findViewById(R.id.status);
+        OR = findViewById(R.id.OrderRecvied);
 
         CD.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast toast = Toast.makeText(getApplicationContext(), "Your Driver information is 817-555-555", Toast.LENGTH_LONG);
+                Toast toast = Toast.makeText(getApplicationContext(), "Your Driver information is 817-555-5555", Toast.LENGTH_LONG);
                 toast.show();
 
             }
@@ -33,6 +34,14 @@ public class Delivery extends AppCompatActivity {
             public void onClick(View a) {
                 Toast toast = Toast.makeText(getApplicationContext(), "Sending you to Communication Page", Toast.LENGTH_LONG);
                 toast.show();
+
+            }
+        });
+        OR.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), review.class));
+
 
             }
         });

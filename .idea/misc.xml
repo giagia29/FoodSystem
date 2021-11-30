@@ -3,13 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Camer/Desktop/FoodSystem/app/src/main/res/layout/activity_cart.xml" value="0.264" />
-        <entry key="..\:/Users/Camer/Desktop/FoodSystem/app/src/main/res/layout/activity_login.xml" value="0.14375" />
-        <entry key="..\:/Users/Camer/Desktop/FoodSystem/app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="..\:/Users/Camer/Desktop/FoodSystem/app/src/main/res/layout/activity_menu_view.xml" value="0.1" />
-        <entry key="..\:/Users/Camer/Desktop/FoodSystem/app/src/main/res/layout/activity_review.xml" value="0.4" />
-        <entry key="..\:/Users/Camer/Desktop/FoodSystem/app/src/main/res/layout/menu_item_card.xml" value="0.4" />
-        <entry key="..\:/Users/Camer/Desktop/FoodSystem/app/src/main/res/layout/restaurant_card.xml" value="0.14375" />
+        <entry key="app/src/main/res/layout/activity_credit_card.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/activity_delivery.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_delivery_method.xml" value="0.24512820512820513" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/activity_meal_plan.xml" value="0.29583333333333334" />
+        <entry key="app/src/main/res/layout/activity_payment.xml" value="0.29583333333333334" />
+        <entry key="app/src/main/res/layout/activity_pickup.xml" value="0.29583333333333334" />
+        <entry key="app/src/main/res/layout/activity_review.xml" value="0.335" />
       </map>
     </option>
   </component>

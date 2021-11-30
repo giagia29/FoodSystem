@@ -13,6 +13,7 @@
         android:text="Contact Driver"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/status"
+        app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -20,6 +21,7 @@
         android:id="@+id/status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="41dp"
         android:text="CHECK STATUS"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -30,10 +32,24 @@
         android:layout_width="295dp"
         android:layout_height="83dp"
         android:text="Chose to Contact Driver or Check ETA"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="189dp"
-        android:textSize="30sp"/>
+        tools:layout_editor_absoluteY="226dp" />
+
+    <Button
+        android:id="@+id/OrderRecvied"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Order Received "
+        tools:layout_editor_absoluteX="163dp"
+        tools:layout_editor_absoluteY="549dp" />
+
+    <ImageView
+        android:layout_width="411dp"
+        android:layout_height="196dp"
+        android:src="@drawable/food2"
+        tools:layout_editor_absoluteX="0dp"></ImageView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

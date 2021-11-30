@@ -3,6 +3,7 @@ package com.example.foodsystem;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -26,6 +27,10 @@ public class CreditCard extends AppCompatActivity {
         cvv = findViewById(R.id.CVV);
         cn = findViewById(R.id.CN);
         ed = findViewById(R.id.ED);
+        cvv.setPaintFlags(cvv.getPaintFlags()| Paint.FAKE_BOLD_TEXT_FLAG|Paint.UNDERLINE_TEXT_FLAG);
+        cn.setPaintFlags(cn.getPaintFlags()| Paint.FAKE_BOLD_TEXT_FLAG|Paint.UNDERLINE_TEXT_FLAG);
+        ed.setPaintFlags(ed.getPaintFlags()| Paint.FAKE_BOLD_TEXT_FLAG|Paint.UNDERLINE_TEXT_FLAG);
+
         button.setOnClickListener(v -> {
             if(cv.getText().toString().isEmpty() || num.getText().toString().isEmpty()|| date.getText().toString().isEmpty()){
                 cvv.setText("");
@@ -41,13 +46,7 @@ public class CreditCard extends AppCompatActivity {
             }else if (date.getText().toString().length() < 10 || date.getText().toString().length() > 10){
                 Toast.makeText(this,"Exp not valid should be in month/date/year 04/15/2021 format",Toast.LENGTH_SHORT).show();
             }else{
-                cvv.setText(cv.getText().toString());
-                cn.setText(num.getText().toString());
-                ed.setText(date.getText().toString());
-                cnum = num.getText().toString();
-                cdate = date.getText().toString();
-                cardv = cv.getText().toString();
-                Intent downloadIntent = new Intent(getApplicationContext(),Delivery.class);
+                Intent downloadIntent = new Intent(getApplicationContext(),DeliveryMethod.class);
                 startActivity(downloadIntent);
             }
         });

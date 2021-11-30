@@ -27,4 +27,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/OP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Order Picked UP"
+        tools:layout_editor_absoluteX="158dp"
+        tools:layout_editor_absoluteY="434dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

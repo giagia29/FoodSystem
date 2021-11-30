@@ -68,7 +68,7 @@ public class Login extends AppCompatActivity {
                         }
                         else
                         {
-                            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                            startActivity(new Intent(getApplicationContext(), Payment.class));
                             finish();
                         }
                     }
@@ -77,7 +77,7 @@ public class Login extends AppCompatActivity {
         });
     }
     public void Register(View view){
-        Intent intent = new Intent(this, Registration.class);
+        Intent intent = new Intent(this, Payment.class);
         startActivity(intent);
     }
 }

@@ -39,7 +39,7 @@ public class menu_item_adapter extends RecyclerView.Adapter<menu_item_adapter.My
         holder.name.setText(item.getName());
         holder.price.setText(item.getPrice());
         holder.description.setText(item.getDescription());
-        holder.add.s
+        //holder.add.
     }
 
     @Override
