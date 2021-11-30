@@ -16,7 +16,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginStart="40dp"
         android:layout_marginTop="244dp"
-        android:text="Welcome to Home Page"
+        android:text="Welcome to UniYum"
         android:textSize="30sp" />
 
     <androidx.recyclerview.widget.RecyclerView
@@ -27,12 +27,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/LogOutBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="330dp"
-        android:text="LogOut" />
+<!--    <Button-->
+<!--        android:id="@+id/LogOutBtn"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:layout_marginBottom="330dp"-->
+<!--        android:text="LogOut" />-->
 </RelativeLayout>

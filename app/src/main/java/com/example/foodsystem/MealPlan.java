@@ -29,7 +29,7 @@ public class MealPlan extends AppCompatActivity {
 
                 Toast.makeText(this, "Student Id should be 10 digits", Toast.LENGTH_SHORT).show();
 
-            } else if(TextUtils.isDigitsOnly(editText.getText().toString())){
+            } else if(!TextUtils.isDigitsOnly(editText.getText().toString())){
                 Toast.makeText(this, "Student Id must be numeric", Toast.LENGTH_SHORT).show();
             } else {
                 textView.setText("ID Successful");

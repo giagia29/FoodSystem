@@ -51,5 +51,12 @@ public class Cart_View extends AppCompatActivity implements menu_item_adapter.On
     }
 
     public void onMIClick(int position){
+//        MenuItem item = cart.restaurant.menuu.get(position);
+//        cart.items.remove(position);
+//        cart.total -= Double.parseDouble(item.price);
+//        Log.d(TAG, "onMIClick: item removed");
+//
+//        adapter = new menu_item_adapter(this, cart.getItems(), this);
+//        recyclerView.setAdapter(adapter);
     }
 }

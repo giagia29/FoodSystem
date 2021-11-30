@@ -37,7 +37,8 @@ public class res_card_adapter extends RecyclerView.Adapter<res_card_adapter.MyVi
         Restaurant restaurant = restaurantList.get(position);
         holder.name.setText(restaurant.getName());
         holder.cuisine.setText(restaurant.getCuisine());
-        holder.waitTime.setText(String.valueOf(restaurant.getWait()) + " Minutes");
+        //holder.waitTime.setText(String.valueOf(restaurant.getWait()) + " Minutes");
+        holder.waitTime.setText("30" + " Minutes");
     }
 
     @Override
