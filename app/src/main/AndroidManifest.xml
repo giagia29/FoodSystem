@@ -11,6 +11,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FoodSystem">
+        <activity android:name=".Payment"/>
+        <activity android:name=".Cart_View"/>
+        <activity android:name=".menu_view"/>
+        <activity android:name=".CreditCard"/>
+        <activity android:name=".Delivery"/>
+        <activity android:name=".DeliveryMethod"/>
+        <activity android:name=".MealPlan"/>
+        <activity android:name=".Pickup"/>
+        <activity android:name=".review"/>
         <activity android:name=".Registration"></activity>
         <activity android:name=".Login">
             <intent-filter>

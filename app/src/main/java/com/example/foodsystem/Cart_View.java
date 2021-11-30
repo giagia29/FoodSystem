@@ -40,9 +40,11 @@ public class Cart_View extends AppCompatActivity implements menu_item_adapter.On
 
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getBaseContext(), Cart_View.class);
-                intent.putExtra("Cart", cart);
-                startActivity(intent);
+//                Intent intent = new Intent(getBaseContext(), Cart_View.class);
+//                intent.putExtra("Cart", cart);
+//                startActivity(intent);
+                    Intent i = new Intent(getBaseContext(), Payment.class);
+                    startActivity(i);
             }
         });
     }

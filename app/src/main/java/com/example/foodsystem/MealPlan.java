@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -28,6 +29,8 @@ public class MealPlan extends AppCompatActivity {
 
                 Toast.makeText(this, "Student Id should be 10 digits", Toast.LENGTH_SHORT).show();
 
+            } else if(TextUtils.isDigitsOnly(editText.getText().toString())){
+                Toast.makeText(this, "Student Id must be numeric", Toast.LENGTH_SHORT).show();
             } else {
                 textView.setText("ID Successful");
                 id = editText.getText().toString();
