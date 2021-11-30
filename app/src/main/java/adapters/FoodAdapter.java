@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -22,6 +23,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
 
     public interface IClickAddtoCartListener{
         void onClickAddtoCart(ImageView imgAddtoCart, Food food);
+        //void onClickAddtoCart(Food food);
     }
 
     public void setData(List<Food> list, IClickAddtoCartListener listener){
@@ -50,7 +52,8 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
         holder.imgAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    iClickAddtoCartListener.onClickAddtoCart(holder.imgAdd, food);
+                iClickAddtoCartListener.onClickAddtoCart(holder.imgAdd, food);
+                //iClickAddtoCartListener.onClickAddtoCart(food);
             }
         });
     }

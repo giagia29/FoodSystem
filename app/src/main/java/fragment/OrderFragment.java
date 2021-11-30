@@ -1,20 +1,27 @@
 package fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.foodsystem.Payment;
 import com.example.foodsystem.R;
 
 import java.util.List;
 
+import adapters.Cart;
+import adapters.CartAdapter;
 import models.Food;
 
 /**
@@ -24,11 +31,11 @@ import models.Food;
  */
 public class OrderFragment extends Fragment {
 
-    TextView foodname;
-    TextView foodprice;
-    //ListView orderlist;
-    //public List<Food> items_buy;
+
+    RecyclerView rvcart;
+    List<Cart> ordercart;
     View mOrderview;
+    Button checkout;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -77,23 +84,27 @@ public class OrderFragment extends Fragment {
 
         mOrderview = inflater.inflate(R.layout.fragment_order, container, false);
 
-        //orderlist = mOrderview.findViewById(R.id.list_item);
-        foodname = mOrderview.findViewById(R.id.f_name);
-        foodprice = mOrderview.findViewById(R.id.f_price);
-        /*ArrayAdapter<Food> adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, items_buy);
-        if (adapter != null)
-        {
-            orderlist.setAdapter(adapter);
-        }*/
+        rvcart = mOrderview.findViewById(R.id.rvcartitem);
+        checkout = mOrderview.findViewById(R.id.checkout);
+        rvcart.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        checkout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), Payment.class);
+                startActivity(i);
+            }
+        });
+
+
+
+        rvcart.setAdapter(new CartAdapter(ordercart));
 
         return mOrderview;
     }
 
-    public void receiveData(String fname, String fprice){
-        foodname.setText(fname);
-        foodprice.setText(fprice);
+
+    public void receiveData(List<Cart> cart){
+        ordercart.addAll(cart);
     }
-    /*public void receiveData(List<Food> cart){
-        items_buy = cart;
-    }*/
 }

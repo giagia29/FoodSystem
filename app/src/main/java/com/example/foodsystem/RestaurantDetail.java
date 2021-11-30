@@ -15,6 +15,7 @@ import com.aurelhubert.ahbottomnavigation.notification.AHNotification;
 
 import java.util.List;
 
+import adapters.Cart;
 import adapters.ViewPagerAdapter;
 import fragment.MenuFragment;
 import fragment.OrderFragment;
@@ -26,7 +27,7 @@ public class RestaurantDetail extends AppCompatActivity implements MenuFragment.
     AHBottomNavigation ahBottomNavigation;
     AHBottomNavigationViewPager ahBottomNavigationViewPager;
     ViewPagerAdapter viewPagerAdapter;
-
+    List<Cart> cartList;
     int OrderCount;
 
     @Override
@@ -92,13 +93,12 @@ public class RestaurantDetail extends AppCompatActivity implements MenuFragment.
         return OrderCount;
     }
 
-    @Override
-    public void sendData(String fname, String fprice) {
-        OrderFragment orderFragment = (OrderFragment) getSupportFragmentManager().findFragmentById(R.id.orderfrag);
-        orderFragment.receiveData(fname, fprice);
+    public List<Cart> getCartList(){
+        return cartList;
     }
-    /*public void sendData(List<Food> cart) {
+
+    public void sendData(List<Cart> cart) {
         OrderFragment orderFragment = (OrderFragment) getSupportFragmentManager().findFragmentById(R.id.orderfrag);
         orderFragment.receiveData(cart);
-    }*/
+    }
 }

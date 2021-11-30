@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -12,15 +13,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.foodsystem.R;
 import com.example.foodsystem.RestaurantDetail;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
 
+import adapters.Cart;
 import adapters.CartAdapter;
 import adapters.FoodAdapter;
 import models.Food;
@@ -32,11 +36,12 @@ public class MenuFragment extends Fragment {
     View mView;
     RestaurantDetail restaurantDetail;
     FoodAdapter foodAdapter;
+    List<Cart> buyitem;
     IsendDataListener isendDataListener;
 
 
     public interface IsendDataListener{
-        void sendData(String fname, String fprice);
+        void sendData(List<Cart> buyitem);
     }
 
     @Override
@@ -79,6 +84,7 @@ public class MenuFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -97,36 +103,40 @@ public class MenuFragment extends Fragment {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(restaurantDetail);
         rvMenu.setLayoutManager(linearLayoutManager);
 
+        buyitem = restaurantDetail.getCartList();
+
         foodAdapter = new FoodAdapter();
         foodAdapter.setData(getListFood(), new FoodAdapter.IClickAddtoCartListener() {
+
+
             @Override
             public void onClickAddtoCart(ImageView imgAddtoCart, Food food) {
                 restaurantDetail.setCountItemInCart(restaurantDetail.getOrderCount() + 1);
-                if (food != null)
-                {
-                    sendDatatoOrder(food);
-                }
+                Toast.makeText(restaurantDetail, food.getFname(), Toast.LENGTH_SHORT).show();
+                Cart itemdata = new Cart(food.getResourceID(), food.getFname(), food.getFprice());
+                //buyitem = getBuyitem(itemdata);
+                //buyitem.add(itemdata);
+
+
 
             }
         });
+
+        if (buyitem != null){
+            sendDatatoOrder(buyitem);
+        }
+
+
         rvMenu.setAdapter(foodAdapter);
 
         return mView;
     }
 
-
-    private void sendDatatoOrder(Food food) {
-        String food_name = food.getFname().toString().trim();
-        String food_price = food.getFprice().toString().trim();
-        if (food_name != null && food_price != null) {
-            isendDataListener.sendData(food_name, food_price);
-        }
-    }
-    /*private void sendDatatoOrder(List<Food> cart) {
+   private void sendDatatoOrder(List<Cart> cart) {
         if (cart != null) {
             isendDataListener.sendData(cart);
         }
-    }*/
+    }
 
     private List<Food> getListFood() {
         List<Food> list = new ArrayList<>();
@@ -138,4 +148,9 @@ public class MenuFragment extends Fragment {
         list.add(new Food(R.drawable.meatball_pasta, "Meatballs Spaghetti", "$6.75"));
         return list;
     }
+    /*public List<Cart> getBuyitem(Cart item){
+        List<Cart> carts = new ArrayList<>();
+        carts.add(item);
+        return carts;
+    }*/
 }
