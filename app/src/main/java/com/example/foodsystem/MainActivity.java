@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -15,8 +17,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
-
+public class MainActivity extends AppCompatActivity implements res_card_adapter.OnResListener {
+    private static final String TAG = "res_card";
     RecyclerView recyclerView;
     DatabaseReference database;
     res_card_adapter myAdapter;
@@ -33,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         list = new ArrayList<>();
-        myAdapter = new res_card_adapter(this, list);
+        myAdapter = new res_card_adapter(this, list, this);
         recyclerView.setAdapter(myAdapter);
 
         database.addValueEventListener(new ValueEventListener() {
@@ -41,9 +43,6 @@ public class MainActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()){
                     Restaurant restaurant = dataSnapshot.getValue(Restaurant.class);
-                    if(dataSnapshot.child("id").exists()){
-                        restaurant.menu_create();
-                    }
                     list.add(restaurant);
                 }
                 myAdapter.notifyDataSetChanged();
@@ -54,5 +53,13 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    public void onResClick(int position) {
+        Restaurant restaurant = list.get(position);
+        Intent intent = new Intent(this, menu_view.class);
+        intent.putExtra("Restaurant", list.get(position));
+        startActivity(intent);
     }
 }

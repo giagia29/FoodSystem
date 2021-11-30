@@ -12,16 +12,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FoodSystem">
         <activity
-            android:name=".restaurantList"
+            android:name=".Cart"
             android:exported="false" />
+        <activity
+            android:name=".menu_view"
+            android:exported="false" />
+        <activity
+            android:name=".review"
+            android:exported="true" />
         <activity android:name=".Registration" />
-        <activity android:name=".Login">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".Login"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
