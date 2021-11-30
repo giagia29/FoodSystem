@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -79,6 +80,8 @@ public class menu_view extends AppCompatActivity implements menu_item_adapter.On
 
     public void onMIClick(int position){
         MenuItem item = cart.restaurant.menuu.get(position);
+        Toast toast = Toast.makeText(getApplicationContext(),item.getName() + " Added To Cart!",Toast.LENGTH_SHORT);
+        toast.show();
         cart.items.add(item);
         cart.total += Double.parseDouble(item.price);
     }
