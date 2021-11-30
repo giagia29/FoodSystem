@@ -44,6 +44,7 @@ public class Cart_View extends AppCompatActivity implements menu_item_adapter.On
 //                intent.putExtra("Cart", cart);
 //                startActivity(intent);
                     Intent i = new Intent(getBaseContext(), Payment.class);
+                    i.putExtra("Cart", cart);
                     startActivity(i);
             }
         });
