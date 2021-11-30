@@ -8,6 +8,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
 import java.util.ArrayList;
 
@@ -15,6 +18,7 @@ public class Cart_View extends AppCompatActivity implements menu_item_adapter.On
     RecyclerView recyclerView;
     Cart cart;
     menu_item_adapter adapter;
+    public static final String TAG = "cart_view";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +33,18 @@ public class Cart_View extends AppCompatActivity implements menu_item_adapter.On
 
         adapter = new menu_item_adapter(this, cart.getItems(), this);
         recyclerView.setAdapter(adapter);
+
+        final Button button = findViewById(R.id.Submitbtn);
+        button.setText(String.format("%.2f", cart.total));
+        button.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getBaseContext(), Cart_View.class);
+                intent.putExtra("Cart", cart);
+                startActivity(intent);
+            }
+        });
     }
 
     public void onMIClick(int position){

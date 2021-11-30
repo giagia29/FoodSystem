@@ -20,7 +20,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class menu_view extends AppCompatActivity implements menu_item_adapter.OnMIListener {
-    Cart Cart;
+    Cart cart;
     RecyclerView recyclerView;
     menu_item_adapter adapter;
     public static final String TAG = "menu_view";
@@ -34,20 +34,20 @@ public class menu_view extends AppCompatActivity implements menu_item_adapter.On
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         Intent intent = getIntent();
-        Cart = new Cart();
-        Cart.items = new ArrayList<MenuItem>();
-        Cart.restaurant = intent.getParcelableExtra("Restaurant");
+        cart = new Cart();
+        cart.items = new ArrayList<MenuItem>();
+        cart.restaurant = intent.getParcelableExtra("Restaurant");
         //Log.d(TAG, "onCreate: " + restaurant.getMenu().toString());
 
         // Get menu from database
-        DatabaseReference database = FirebaseDatabase.getInstance().getReference("restaurants/"+ Cart.restaurant.getId()+"/menu");
-        Cart.restaurant.menuu = new ArrayList<MenuItem>();
+        DatabaseReference database = FirebaseDatabase.getInstance().getReference("restaurants/"+ cart.restaurant.getId()+"/menu");
+        cart.restaurant.menuu = new ArrayList<MenuItem>();
         ValueEventListener event = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     MenuItem item = dataSnapshot.getValue(MenuItem.class);
-                    Cart.restaurant.menuu.add(item);
+                    cart.restaurant.menuu.add(item);
                 }
                 adapter.notifyDataSetChanged();
             }
@@ -60,7 +60,7 @@ public class menu_view extends AppCompatActivity implements menu_item_adapter.On
         database.addValueEventListener(event);
         //Log.d(TAG, "onCreate: " + restaurant.getMenu().toString());
 
-        adapter = new menu_item_adapter(this, Cart.restaurant.getMenu(), this);
+        adapter = new menu_item_adapter(this, cart.restaurant.getMenu(), this);
         recyclerView.setAdapter(adapter);
 
         final Button button = findViewById(R.id.cartBtn);
@@ -70,14 +70,16 @@ public class menu_view extends AppCompatActivity implements menu_item_adapter.On
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getBaseContext(), Cart_View.class);
-                intent.putExtra("Cart", Cart);
+                intent.putExtra("Cart", cart);
+                Log.d(TAG, "onClick: " +Double.toString(cart.total));
                 startActivity(intent);
             }
         });
     }
 
     public void onMIClick(int position){
-        MenuItem item = Cart.restaurant.menuu.get(position);
-        Cart.items.add(item);
+        MenuItem item = cart.restaurant.menuu.get(position);
+        cart.items.add(item);
+        cart.total += Double.parseDouble(item.price);
     }
 }

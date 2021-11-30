@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class Cart implements Parcelable {
     ArrayList<MenuItem> items;
-    double total;
+    double total = 0;
     long payment;
     Restaurant restaurant;
     String Method;
