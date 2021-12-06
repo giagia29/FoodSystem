@@ -5,10 +5,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.module.AppGlideModule;
 
 import java.util.ArrayList;
 
@@ -39,6 +43,7 @@ public class res_card_adapter extends RecyclerView.Adapter<res_card_adapter.MyVi
         holder.cuisine.setText(restaurant.getCuisine());
         //holder.waitTime.setText(String.valueOf(restaurant.getWait()) + " Minutes");
         holder.waitTime.setText("30" + " Minutes");
+        Glide.with(context).load(restaurant.image_ref).into(holder.logo);
     }
 
     @Override
@@ -48,6 +53,7 @@ public class res_card_adapter extends RecyclerView.Adapter<res_card_adapter.MyVi
 
     public static class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView name, cuisine, waitTime;
+        ImageView logo;
         OnResListener onResListener;
 
         public MyViewHolder(@NonNull View restaurantView, OnResListener onResListener){
@@ -56,6 +62,7 @@ public class res_card_adapter extends RecyclerView.Adapter<res_card_adapter.MyVi
             name = restaurantView.findViewById(R.id.rName);
             cuisine = restaurantView.findViewById(R.id.rCuisine);
             waitTime = restaurantView.findViewById(R.id.rWait);
+            logo = restaurantView.findViewById(R.id.rImage);
             this.onResListener = onResListener;
 
             restaurantView.setOnClickListener(this);

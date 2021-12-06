@@ -4,19 +4,19 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class Restaurant implements Parcelable{
-    String name, closeHour, cuisine, openHour, id;
+    String name, closeHour, cuisine, openHour, id, image_ref;
     Long wait;
     ArrayList<MenuItem> menuu;
 
-    public Restaurant(String name, String closeHour, String cuisine, String openHour, String id, Long wait, ArrayList<MenuItem> menu) {
+    public Restaurant(String name, String closeHour, String cuisine, String openHour, String id, String image_ref, Long wait, ArrayList<MenuItem> menu) {
         this.name = name;
         this.closeHour = closeHour;
         this.cuisine = cuisine;
         this.openHour = openHour;
         this.id = id;
+        this.image_ref = image_ref;
         this.wait = wait;
         this.menuu = menu;
     }
@@ -29,6 +29,7 @@ public class Restaurant implements Parcelable{
         cuisine = in.readString();
         openHour = in.readString();
         id = in.readString();
+        image_ref = in.readString();
         if (in.readByte() == 0) {
             wait = null;
         } else {
@@ -76,6 +77,10 @@ public class Restaurant implements Parcelable{
         return menuu;
     }
 
+    public String getImage_ref() {
+        return image_ref;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -88,6 +93,7 @@ public class Restaurant implements Parcelable{
         dest.writeString(cuisine);
         dest.writeString(openHour);
         dest.writeString(id);
+        dest.writeString(image_ref);
         if (wait == null) {
             dest.writeByte((byte) 0);
         } else {
