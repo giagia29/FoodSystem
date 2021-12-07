@@ -30,14 +30,16 @@ public class menu_view extends AppCompatActivity implements menu_item_adapter.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_view);
 
+        // Initialize recycler view for menu items
         recyclerView = findViewById(R.id.itemsView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         Intent intent = getIntent();
+
+        // Initializes cart object to save items and send to cart_view
         cart = new Cart();
         cart.items = new ArrayList<MenuItem>();
         cart.restaurant = intent.getParcelableExtra("Restaurant");
-        //Log.d(TAG, "onCreate: " + restaurant.getMenu().toString());
 
         // Get menu from database
         DatabaseReference database = FirebaseDatabase.getInstance().getReference("restaurants/"+ cart.restaurant.getId()+"/menu");
@@ -58,13 +60,13 @@ public class menu_view extends AppCompatActivity implements menu_item_adapter.On
             }
         };
         database.addValueEventListener(event);
-        //Log.d(TAG, "onCreate: " + restaurant.getMenu().toString());
 
+        // set adapter for menu
         adapter = new menu_item_adapter(this, cart.restaurant.getMenu(), this);
         recyclerView.setAdapter(adapter);
 
+        // Button to go to cart_view and complete order
         final Button button = findViewById(R.id.cartBtn);
-
         button.setOnClickListener(new View.OnClickListener(){
 
             @Override
@@ -77,6 +79,7 @@ public class menu_view extends AppCompatActivity implements menu_item_adapter.On
         });
     }
 
+    // make menu items clickable
     public void onMIClick(int position){
         MenuItem item = cart.restaurant.menuu.get(position);
         cart.items.add(item);

@@ -25,24 +25,25 @@ public class Cart_View extends AppCompatActivity implements menu_item_adapter.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart);
 
+        // Initialize recycler for ordering items
         recyclerView = findViewById(R.id.cart_items);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        // Get cart from call
         Intent intent = getIntent();
         cart = intent.getParcelableExtra("Cart");
 
+        // set recycler and adapter for ordered items
         adapter = new menu_item_adapter(this, cart.getItems(), this);
         recyclerView.setAdapter(adapter);
 
+        // Button to submit order
         final Button button = findViewById(R.id.Submitbtn);
         button.setText(String.format("%.2f", cart.total));
         button.setOnClickListener(new View.OnClickListener(){
-
             @Override
             public void onClick(View v) {
-//                Intent intent = new Intent(getBaseContext(), Cart_View.class);
-//                intent.putExtra("Cart", cart);
-//                startActivity(intent);
                     Intent i = new Intent(getBaseContext(), Payment.class);
                     i.putExtra("Cart", cart);
                     startActivity(i);

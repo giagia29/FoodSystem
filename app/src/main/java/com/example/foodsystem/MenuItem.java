@@ -6,6 +6,7 @@ import android.os.Parcelable;
 public class MenuItem implements Parcelable {
     String name, description, prepTime, price;
 
+    // Generated core to parce and load from firebase
     public MenuItem(){}
     public String getName() {
         return name;

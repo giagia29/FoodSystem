@@ -12,6 +12,7 @@ public class Cart implements Parcelable {
     Restaurant restaurant;
     String Method;
 
+    // Generated code to parce
     public Cart(){}
 
     protected Cart(Parcel in) {
